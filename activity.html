@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 ,user-scalable=0"> -->
-    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
     <title>开心消消乐</title>
     <script src="./js/jquery-3.4.1.min.js"></script>
     <script src="./js/font_size.js"></script>
@@ -302,27 +301,10 @@
         }
         
     }
-    // window.onload = function() {// 禁止safari浏览器缩放
-    //     var lastTouchEnd = 0;
-    //     document.addEventListener('touchstart', function(event) {
-    //         if (event.touches.length > 1) {
-    //             event.preventDefault();
-    //         }
-    //     });
-    //     document.addEventListener('touchend', function(event) {
-    //         var now = (new Date()).getTime();
-    //         if (now - lastTouchEnd <= 300) {
-    //             event.preventDefault();
-    //         }
-    //         lastTouchEnd = now;
-    //     }, false);
-    //     document.addEventListener('gesturestart', function(event) {
-    //         event.preventDefault();
-    //     });
-    //     document.addEventListener('dblclick', function (event) {
-    //         event.preventDefault();
-    //     })
-    // }
-
+    document.documentElement.addEventListener('touchmove', function(event) {
+        if (event.touches.length > 1) {
+        event.preventDefault();
+        }
+    }, false);
 </script>
 </html>
