@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/font_size.js"></script>
+    <title>规则页</title>
+    <style>
+        html,body{
+            margin: 0;
+        }
+        body{
+            position: relative;
+        }
+        .rule{
+            font-size: 0;
+            height: auto;           
+        }
+        .rule img{
+            width: 100%;
+        }
+        .back{
+            position: absolute;
+            top: .333333rem;
+            left: .333333rem;
+        }
+        .back img{
+            width: .666667rem;
+            height: .666667rem;
+        }
+        a:active{
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -moz-tap-highlight-color:rgba(0, 0, 0, 0);
+            -ms-tap-highlight-color:rgba(0, 0, 0, 0);
+            -o-tap-highlight-color:rgba(0, 0, 0, 0);
+            tap-highlight-color:rgba(0, 0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="rule">
+        <img src="./imgs/rule.png">
+    </div>
+    <a href="javascript:history.go(-1);"><div class="back"><img src="./imgs/back.png"></div></a>
+</body>
+</html>

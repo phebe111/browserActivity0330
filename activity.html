@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 ,user-scalable=no">
+    <title>开心消消乐</title>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/font_size.js"></script>
+    <script src="./js/mmapp_v1.0.js"></script>
+    <style>
+        html,body{
+            margin: 0;
+        }
+        body{
+            position: relative;
+        }
+        .bodyNoSliding{
+            position:fixed;
+            top:0;
+            overflow: hidden;
+        }
+        .wrap{
+            font-size: 0;
+            height: auto;           
+        }
+        .wrap img{
+            width: 100%;
+            
+        }
+        .moreRules{
+            background: url("./imgs/more.png") no-repeat top right;
+            background-size: contain;
+            height: 2.5rem;
+            width: 3rem;
+            position: absolute;
+            z-index: 100;
+            right: 0;
+            top: -0.4rem;
+        }
+        .clickEvent{
+            width:2.611111rem;
+            height: 2.583333rem;
+            position: absolute;
+            top: 7.555556rem;
+            left: 36.95%;
+            /* background-color: red;             */
+        }
+        .cover{
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 101;
+        }
+        .tipWrap{
+            display: none;
+            position: fixed;
+            top: 0;
+            z-index: 102;
+            left: 3.61%;
+            top: 18.45%;
+        }
+        .tipWrap2{
+            display: none;
+            position: fixed;
+            top: 0;
+            z-index: 102;
+            left: 3.61%;
+            top: 18.45%;
+        }
+        .tip{
+            background-image: url("./imgs/tip.png");
+            width: 9.277778rem;
+            height: 7.638889rem;
+            background-size: 100% 100%;
+        }
+        .tip2{
+            background-image: url("./imgs/tip2.png");
+            background-repeat: no-repeat;
+        }
+        .close{
+            width: .888889rem;
+            height: .888889rem;
+            background-image: url("./imgs/close.png");
+            background-size: contain;
+            margin-left: 45.56%;
+            margin-top: .555556rem;
+            background-repeat: no-repeat;
+        }
+        .tipCoveBtn{
+            width: 3.861111rem;
+            height: .972222rem;
+            position: absolute;
+            bottom: 1.75rem;
+            left: 2.708333rem;
+            /* background-color: red; */
+        }
+        .tipCoveBtnOne{
+            width: 3.861111rem;
+            height: .972222rem;
+            position: absolute;
+            bottom: 2.87037rem;
+            left: 2.708333rem;
+        }
+        .dlBt{
+            position: absolute;
+            top: 15.722222rem;
+            right: .555556rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .dlBt img{
+            width: 2.777778rem;
+            margin-bottom: .166667rem;
+        }
+        .copyright{
+            height: 3rem;
+            width: 52%;
+            left: 24%;
+            position: absolute;
+            bottom: 0;
+        }
+        .logo{
+            background: url("./imgs/logo.png") no-repeat;
+            height: 29%;
+            background-size: contain;
+        }
+        .cpr{
+            background: url("./imgs/cpr.png") no-repeat;
+            height: 24%;
+            background-size: contain;
+        }
+        .m-confirm{
+            position: relative;
+            text-align: center;
+            background: none;
+        }
+        .confirm-hd{
+            display: inline-block;
+            font-size: .28rem;
+            width: 4.62rem;
+            height: 2.55rem;
+            background: url("./imgs/guide2-top.png") no-repeat;
+            background-size: 100% 100%;
+            margin-bottom: .6rem;
+        }
+        .mask-black-dialog{
+            background-color: rgba(0,0,0,.7);
+            position: fixed;
+            z-index: 1500;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            top: 0;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: -moz-box;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            -moz-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            -moz-box-align: center;
+            align-items: center;
+        }
+        .tobrowser{
+            width: 4.32037rem;
+            position: absolute;
+            top: .277778rem;
+            right: .37037rem;
+            display: none;
+            z-index: 3000;
+        }
+        .tobrowser img{
+            width: 100%;           
+        }
+        a:active{
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -moz-tap-highlight-color:rgba(0, 0, 0, 0);
+            -ms-tap-highlight-color:rgba(0, 0, 0, 0);
+            -o-tap-highlight-color:rgba(0, 0, 0, 0);
+            tap-highlight-color:rgba(0, 0, 0, 0);
+        }
+    </style>
+</head>
+<body class="bodyClass">
+    <div class="wrap">
+        <img src="./imgs/index.png">
+    </div>
+    <div class="clickEvent" onclick="clickEvent()"></div>
+    <a class="moreRules" href="./rule.html"></a>
+    <div class="cover"></div>
+    <div class="tipWrap">
+        <div class="tip"></div>
+        <div onclick="closeCover(1)" class="close"></div>
+        <div onclick="dlMMApp()" class="tipCoveBtn"></div>
+    </div>
+    <div class="tipWrap2">
+        <div class="tip tip2"></div>
+        <div onclick="closeCover(2)" class="close"></div>
+        <div onclick="dlMMApp()" class="tipCoveBtnOne"></div> 
+        <div onclick="dlGameApp()" class="tipCoveBtn"></div> 
+    </div>
+    <div class="dlBt">
+        <img src="./imgs/mmdlbt.png" onclick="dlMMApp()">
+        <img src="./imgs/dlbt.png" onclick="dlGameApptip()">
+    </div>
+    <div class="copyright">
+        <div class="logo"></div>
+        <div class="cpr"></div>
+    </div>
+    <div class="mask-black-dialog" style="display: none;">
+        <div class="m-confirm">
+            <div class="confirm-hd "></div>
+        </div>
+    </div>
+    <div class="tobrowser"><img src="./imgs/openbrowser.png"></div>
+</body>
+<script>
+    $(function(){       
+        $("#__mm-wap-toast").hide();
+        var u = navigator.userAgent;
+        var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        console.log(isIOS)
+        if(isIOS){
+            $(".bodyClass").addClass("bodyNoSliding");
+            $(".cover").show();
+            $(".mask-black-dialog").show();          
+            return;
+        }
+        mm.init({
+            showtitle:true,//true：显示；false：隐藏
+            channelid:5410093632 //a.l0086.cn 默认使用渠道ID：5410093632
+        })
+        document.documentElement.addEventListener('touchmove', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, false);
+    })
+    function clickEvent(){
+        var is_weixin = (function(){return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1})();
+        if(is_weixin){ 
+            $(".cover").show();
+            $(".tobrowser").show();
+        }else{
+            $(".cover").show();
+            $(".tipWrap").show();           
+        }
+        $(".bodyClass").addClass("bodyNoSliding");
+    }
+    function closeCover(index){
+        $(".bodyClass").removeClass("bodyNoSliding");
+        if(index==1){
+            $(".tipWrap").hide();
+        }else{
+            $(".tipWrap2").hide();
+        }
+        $(".cover").hide();
+        
+    }
+    function dlMMApp(){//判断是否有MM客户端，有则打开，没有则下载
+        var is_weixin = (function(){return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1})();
+        if(is_weixin){ 
+            $(".cover").show();
+            $(".tobrowser").show();
+        }else{
+            mm.open('http://221.179.8.170:8080/browserActivity0330/change.html?withmminfo=0246', true);
+        }
+        
+    }
+    function dlGameApptip(){
+        var is_weixin = (function(){return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1})();
+        if(is_weixin){ 
+            $(".cover").show();
+            $(".tobrowser").show();
+        }else{
+            $(".cover").show();
+            $(".tipWrap2").show();
+        }
+        $(".bodyClass").addClass("bodyNoSliding");
+    }
+    function dlGameApp(){
+        var is_weixin = (function(){return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1})();
+        if(is_weixin){ 
+            $(".cover").show();
+            $(".tobrowser").show();
+            $(".bodyClass").addClass("bodyNoSliding");
+        }else{
+            window.location.href="http://odp.fr18.mmarket.com/s.do?requestid=sony_widget_download&goodsid=000x15080310448100011630361300011966730&ua=android-28-480x800-WX";
+        }
+        
+    }
+</script>
+</html>
